@@ -31,14 +31,14 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYf-Sd-gWm" userLabel="Dicee container">
                                         <rect key="frame" x="0.0" y="298.66666666666663" width="414" height="298.66666666666663"/>
                                         <subviews>
-                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="51" translatesAutoresizingMaskIntoConstraints="NO" id="PdR-NH-WRS">
-                                                <rect key="frame" x="81.666666666666686" y="99.333333333333314" width="251" height="100"/>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="50" translatesAutoresizingMaskIntoConstraints="NO" id="PdR-NH-WRS">
+                                                <rect key="frame" x="82" y="99.333333333333314" width="250" height="100"/>
                                                 <subviews>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice1" translatesAutoresizingMaskIntoConstraints="NO" id="xw0-k7-vBF">
                                                         <rect key="frame" x="0.0" y="0.0" width="100" height="100"/>
                                                     </imageView>
                                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dice1" translatesAutoresizingMaskIntoConstraints="NO" id="pwj-ny-nJ1">
-                                                        <rect key="frame" x="151" y="0.0" width="100" height="100"/>
+                                                        <rect key="frame" x="150" y="0.0" width="100" height="100"/>
                                                     </imageView>
                                                 </subviews>
                                             </stackView>
@@ -58,7 +58,7 @@
                                                     <constraint firstAttribute="height" constant="100" id="KbL-AZ-zSK"/>
                                                     <constraint firstAttribute="width" relation="greaterThanOrEqual" constant="200" id="aqr-pI-1bI"/>
                                                 </constraints>
-                                                <fontDescription key="fontDescription" name="MarkerFelt-Thin" family="Marker Felt" pointSize="60"/>
+                                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="50"/>
                                                 <state key="normal" title="Roll">
                                                     <color key="titleColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                                 </state>
@@ -66,10 +66,18 @@
                                                     <action selector="rollButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="tzP-mS-2cG"/>
                                                 </connections>
                                             </button>
+                                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Player 1" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OOW-om-ahi">
+                                                <rect key="frame" x="130.66666666666669" y="10.000000000000004" width="152.66666666666669" height="44.333333333333343"/>
+                                                <fontDescription key="fontDescription" name="Futura-Bold" family="Futura" pointSize="34"/>
+                                                <color key="textColor" red="0.4914765358" green="0.18667906519999999" blue="0.18667906519999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <nil key="highlightedColor"/>
+                                            </label>
                                         </subviews>
                                         <constraints>
+                                            <constraint firstItem="OOW-om-ahi" firstAttribute="centerX" secondItem="XXT-mT-TFd" secondAttribute="centerX" id="MNx-jr-9Im"/>
                                             <constraint firstItem="EzZ-OO-Rdd" firstAttribute="centerY" secondItem="XXT-mT-TFd" secondAttribute="centerY" id="Psa-na-HvU"/>
                                             <constraint firstItem="EzZ-OO-Rdd" firstAttribute="centerY" secondItem="XXT-mT-TFd" secondAttribute="centerY" id="QuI-T8-nsx"/>
+                                            <constraint firstItem="OOW-om-ahi" firstAttribute="top" secondItem="XXT-mT-TFd" secondAttribute="top" constant="10" id="TBY-2v-U7V"/>
                                             <constraint firstItem="EzZ-OO-Rdd" firstAttribute="centerX" secondItem="XXT-mT-TFd" secondAttribute="centerX" id="plf-5S-kcf"/>
                                             <constraint firstItem="EzZ-OO-Rdd" firstAttribute="centerX" secondItem="XXT-mT-TFd" secondAttribute="centerX" id="tMb-VO-Mb1"/>
                                         </constraints>
@@ -92,6 +100,8 @@
                     <connections>
                         <outlet property="diceImageVideOne" destination="pwj-ny-nJ1" id="Ozg-Xw-pDo"/>
                         <outlet property="diceImageViewTwo" destination="xw0-k7-vBF" id="ghU-dz-YJd"/>
+                        <outlet property="playerLabel" destination="OOW-om-ahi" id="9oP-I9-KvD"/>
+                        <outlet property="rollButton" destination="EzZ-OO-Rdd" id="rQN-SJ-RwC"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
