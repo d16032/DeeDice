@@ -51,7 +51,8 @@ class ViewController: UIViewController {
     }
     
     @IBAction func rollButton(_ sender: UIButton) {
-        
+        rollButton.isEnabled = false
+        rollButton.backgroundColor = UIColor.gray
         dicee.shakeDice() // plays the sfx of shaking dice
         
         dicee.imageChangeTimer = Timer.scheduledTimer(timeInterval: 0.1, target: self, selector: #selector(self.changeImage), userInfo: nil, repeats: true)
@@ -60,7 +61,11 @@ class ViewController: UIViewController {
             self.dicee.updateDice() // rolls the dice after 1 sec of the previous sfx
             self.dicee.stopImageAnimation()
             self.dicee.dicePlayerTurn(label: self.playerLabel)
+            self.rollButton.isEnabled = true
+            self.rollButton.backgroundColor = UIColor(red: 0.5, green: 0.7, blue: 0.2, alpha: 1)
+            
         }
+        //rollButton.isEnabled = true
     }
     
     override func motionEnded(_ motion: UIEvent.EventSubtype, with event: UIEvent?) {
