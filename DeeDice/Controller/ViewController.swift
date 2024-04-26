@@ -12,20 +12,24 @@ class ViewController: UIViewController {
     var diceCombo : String! // define the combo string var
     
     var dicee = Dicee() // init the dice from Dice struct
-    
+    var buttonTag: Int?
     var diceImages: [UIImage] = []
     
     @IBOutlet weak var diceImageVideOne: UIImageView! // IB outlet for the left img of dice
     @IBOutlet weak var diceImageViewTwo: UIImageView! // IB outlet for the right img of dice
     @IBOutlet weak var playerLabel: UILabel!
-    
     @IBOutlet weak var rollButton: UIButton!
+    @IBOutlet weak var historyButtonLabel: UIButton!
+    @IBOutlet weak var playerTwoLabel: UIButton!
     
     override func viewDidLoad() {
+        
         super.viewDidLoad()
         
         //Make button rounded
         rollButton.layer.cornerRadius = rollButton.frame.height / 2
+        historyButtonLabel.layer.cornerRadius = historyButtonLabel.frame.height / 2
+        playerTwoLabel.layer.cornerRadius = playerTwoLabel.frame.height / 2
         
         rollButton.layer.borderWidth = 4
         rollButton.layer.borderColor = CGColor(red: 125, green: 48, blue: 48, alpha: 0.5)
@@ -38,16 +42,31 @@ class ViewController: UIViewController {
         diceImageViewTwo.image = diceImages[Int.random(in: 0...5)]
     }
     
-    // Method to change the image displayed in the UIImageView
-    @objc func changeImage() {
+    @IBAction func historyButton(_ sender: UIButton) {
         
-        // Set the new image
-        let randOne = Int.random(in: 0...5)
-        let randTwo = Int.random(in: 0...5)
-        diceImageVideOne.image = diceImages[randOne]
-        diceImageViewTwo.image = diceImages[randTwo]
-        dicee.d1 = randOne + 1
-        dicee.d2 = randTwo + 1
+        buttonTag = 1
+        self.performSegue(withIdentifier: "DiceRow", sender: self)
+    }
+    
+    @IBAction func p2HistoryButton(_ sender: UIButton) {
+        buttonTag = 2
+        self.performSegue(withIdentifier: "Player2", sender: self)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "DiceRow" {
+            let destinationVC = segue.destination as! DiceTableViewController
+            
+            destinationVC.p1Array = dicee.p1History
+            destinationVC.buttonTag = buttonTag
+        }
+        else if
+            segue.identifier == "Player2" {
+            let destinationVC = segue.destination as! DiceTableViewController
+            
+            destinationVC.p2Array = dicee.p2History
+            destinationVC.buttonTag = buttonTag
+        }
     }
     
     @IBAction func rollButton(_ sender: UIButton) {
@@ -78,6 +97,18 @@ class ViewController: UIViewController {
             self.dicee.stopImageAnimation()
             self.dicee.dicePlayerTurn(label: self.playerLabel)
         }
+    }
+    
+    // Method to change the image displayed in the UIImageView
+    @objc func changeImage() {
+        
+        // Set the new image
+        let randOne = Int.random(in: 0...5)
+        let randTwo = Int.random(in: 0...5)
+        diceImageVideOne.image = diceImages[randOne]
+        diceImageViewTwo.image = diceImages[randTwo]
+        dicee.d1 = randOne + 1
+        dicee.d2 = randTwo + 1
     }
 }
 

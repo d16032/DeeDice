@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		610A53082BDBC44A0026E297 /* DiceTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 610A53072BDBC44A0026E297 /* DiceTableViewController.swift */; };
 		6134DB2D2BC69D19007D2045 /* Model.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6134DB2C2BC69D19007D2045 /* Model.swift */; };
 		6134DB592BC6A8BB007D2045 /* comb-1x1.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6134DB2E2BC6A8BB007D2045 /* comb-1x1.mp3 */; };
 		6134DB5A2BC6A8BB007D2045 /* comb-1x2.mp3 in Resources */ = {isa = PBXBuildFile; fileRef = 6134DB2F2BC6A8BB007D2045 /* comb-1x2.mp3 */; };
@@ -53,6 +54,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		610A53072BDBC44A0026E297 /* DiceTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DiceTableViewController.swift; sourceTree = "<group>"; };
 		6134DB2C2BC69D19007D2045 /* Model.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Model.swift; sourceTree = "<group>"; };
 		6134DB2E2BC6A8BB007D2045 /* comb-1x1.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "comb-1x1.mp3"; sourceTree = "<group>"; };
 		6134DB2F2BC6A8BB007D2045 /* comb-1x2.mp3 */ = {isa = PBXFileReference; lastKnownFileType = audio.mp3; path = "comb-1x2.mp3"; sourceTree = "<group>"; };
@@ -115,6 +117,7 @@
 			isa = PBXGroup;
 			children = (
 				8441C37E22E8BCF600784574 /* ViewController.swift */,
+				610A53072BDBC44A0026E297 /* DiceTableViewController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -366,6 +369,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				610A53082BDBC44A0026E297 /* DiceTableViewController.swift in Sources */,
 				6134DB2D2BC69D19007D2045 /* Model.swift in Sources */,
 				8441C37F22E8BCF600784574 /* ViewController.swift in Sources */,
 				8441C37D22E8BCF600784574 /* AppDelegate.swift in Sources */,

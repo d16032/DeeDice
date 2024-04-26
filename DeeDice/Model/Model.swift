@@ -101,6 +101,10 @@ struct Dicee {
         
     }
     
+    func getCount() -> Int {
+        return p1History.count
+    }
+    
     mutating func stopImageAnimation() {
         // Invalidate the timer to stop the image animation
         imageChangeTimer?.invalidate()

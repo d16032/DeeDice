@@ -4,6 +4,7 @@
     <dependencies>
         <deployment identifier="iOS"/>
         <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="22684"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -27,6 +28,38 @@
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0j4-Nu-cAH" userLabel="Top View">
                                         <rect key="frame" x="0.0" y="0.0" width="414" height="298.66666666666669"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="g6f-ql-W3w">
+                                                <rect key="frame" x="156.66666666666666" y="80" width="100.66666666666666" height="34.333333333333343"/>
+                                                <color key="backgroundColor" red="0.4914765358" green="0.18667906519999999" blue="0.18667906519999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="P1 History">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="historyButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zpd-NQ-Wp3"/>
+                                                    <segue destination="lpI-Om-ZhS" kind="modal" identifier="DiceRow" id="veB-iR-tKc"/>
+                                                </connections>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lqS-JX-Dj8">
+                                                <rect key="frame" x="155.66666666666666" y="134.33333333333334" width="102.99999999999997" height="34.333333333333343"/>
+                                                <color key="backgroundColor" red="0.4914765358" green="0.18667906519999999" blue="0.18667906519999999" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                                <state key="normal" title="Button"/>
+                                                <buttonConfiguration key="configuration" style="plain" title="P2 History">
+                                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                </buttonConfiguration>
+                                                <connections>
+                                                    <action selector="p2HistoryButton:" destination="BYZ-38-t0r" eventType="touchUpInside" id="V1H-dn-uaD"/>
+                                                    <segue destination="2f4-as-30U" kind="modal" identifier="Player2" id="i2G-Uu-r2A"/>
+                                                </connections>
+                                            </button>
+                                        </subviews>
+                                        <constraints>
+                                            <constraint firstItem="lqS-JX-Dj8" firstAttribute="centerX" secondItem="0j4-Nu-cAH" secondAttribute="centerX" id="MJA-Hr-EUe"/>
+                                            <constraint firstItem="g6f-ql-W3w" firstAttribute="centerX" secondItem="0j4-Nu-cAH" secondAttribute="centerX" id="nYm-6G-52A"/>
+                                            <constraint firstItem="g6f-ql-W3w" firstAttribute="top" secondItem="0j4-Nu-cAH" secondAttribute="top" constant="80" id="vNY-mP-i4R"/>
+                                            <constraint firstItem="lqS-JX-Dj8" firstAttribute="top" secondItem="g6f-ql-W3w" secondAttribute="bottom" constant="20" id="zhd-j3-JPM"/>
+                                        </constraints>
                                     </view>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KYf-Sd-gWm" userLabel="Dicee container">
                                         <rect key="frame" x="0.0" y="298.66666666666663" width="414" height="298.66666666666663"/>
@@ -100,7 +133,9 @@
                     <connections>
                         <outlet property="diceImageVideOne" destination="pwj-ny-nJ1" id="Ozg-Xw-pDo"/>
                         <outlet property="diceImageViewTwo" destination="xw0-k7-vBF" id="ghU-dz-YJd"/>
+                        <outlet property="historyButtonLabel" destination="g6f-ql-W3w" id="3aq-2i-Sos"/>
                         <outlet property="playerLabel" destination="OOW-om-ahi" id="9oP-I9-KvD"/>
+                        <outlet property="playerTwoLabel" destination="lqS-JX-Dj8" id="uKa-rN-g2E"/>
                         <outlet property="rollButton" destination="EzZ-OO-Rdd" id="rQN-SJ-RwC"/>
                     </connections>
                 </viewController>
@@ -108,9 +143,68 @@
             </objects>
             <point key="canvasLocation" x="94.20289855072464" y="175.44642857142856"/>
         </scene>
+        <!--Player 1 History-->
+        <scene sceneID="cfT-1j-GTY">
+            <objects>
+                <tableViewController title="Player 1 History" id="lpI-Om-ZhS" customClass="DiceTableViewController" customModule="DeeDice" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="1T7-k0-2N3">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="DiceRow" id="AMC-bg-H8D">
+                                <rect key="frame" x="0.0" y="50" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="AMC-bg-H8D" id="tPp-1M-zCn">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="lpI-Om-ZhS" id="Hmc-pq-d3u"/>
+                            <outlet property="delegate" destination="lpI-Om-ZhS" id="XgZ-zp-oyQ"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="pC0-Ux-yth" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028" y="-60"/>
+        </scene>
+        <!--Dice Table View Controller-->
+        <scene sceneID="vqY-MP-FA6">
+            <objects>
+                <tableViewController id="2f4-as-30U" customClass="DiceTableViewController" customModule="DeeDice" customModuleProvider="target" sceneMemberID="viewController">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" id="Hfb-PP-V3l">
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="886"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <prototypes>
+                            <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationWidth="10" reuseIdentifier="Player2" id="3sD-kT-z21">
+                                <rect key="frame" x="0.0" y="50" width="414" height="43.666667938232422"/>
+                                <autoresizingMask key="autoresizingMask"/>
+                                <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="3sD-kT-z21" id="Tdj-Iv-n8u">
+                                    <rect key="frame" x="0.0" y="0.0" width="414" height="43.666667938232422"/>
+                                    <autoresizingMask key="autoresizingMask"/>
+                                </tableViewCellContentView>
+                            </tableViewCell>
+                        </prototypes>
+                        <connections>
+                            <outlet property="dataSource" destination="2f4-as-30U" id="and-53-7UV"/>
+                            <outlet property="delegate" destination="2f4-as-30U" id="faS-is-JWc"/>
+                        </connections>
+                    </tableView>
+                </tableViewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="22x-S9-ny1" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1028" y="714"/>
+        </scene>
     </scenes>
     <resources>
         <image name="board" width="2094" height="2961"/>
         <image name="dice1" width="100" height="100"/>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
     </resources>
 </document>
